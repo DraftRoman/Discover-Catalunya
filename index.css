@@ -1,0 +1,212 @@
+:root {
+    --primary: #2b6cb0;
+    --text: #4a5568;
+    --text-dark: #1a202c;
+    --bg: #f7fafc;
+    --card-bg: #ffffff;
+    --border: #edf2f7;
+    --accent: #dd6b20;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    margin: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #12141c;
+        --card-bg: #1e2230;
+        --text: #a0aec0;
+        --text-dark: #f7fafc;
+        --border: #2d3748;
+        --primary: #63b3ed;
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Component Styles */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border);
+    padding: 16px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow);
+}
+
+header img {
+    height: 32px;
+    width: auto;
+}
+
+header h1 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+/* Layout Main Container */
+.container {
+    max-width: 1140px;
+    margin: 40px auto;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+/* Journal Entry Card Structure */
+.journal-entry {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid var(--border);
+}
+
+.journal-entry:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* Image Handling */
+.main-image-container {
+    width: 100%;
+    height: 100%;
+    min-height: 240px;
+    overflow: hidden;
+    position: relative;
+}
+
+.main-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.journal-entry:hover .main-image {
+    transform: scale(1.03);
+}
+
+/* Info Presentation Panel */
+.info-container {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+.location-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.marker {
+    height: 16px;
+    width: auto;
+}
+
+.country {
+    color: var(--text-dark);
+}
+
+.maps-link {
+    color: var(--primary);
+    text-decoration: none;
+    margin-left: auto;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0;
+    transition: opacity 0.2s;
+}
+
+.maps-link:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+.entry-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0 0 16px 0;
+}
+
+.entry-text {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text);
+    margin: 0 0 24px 0;
+}
+
+/* Practical Trip Metadata Block */
+.meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+}
+
+.meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 14px;
+}
+
+.meta-label {
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--accent);
+}
+
+.meta-value {
+    color: var(--text-dark);
+    line-height: 1.4;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .journal-entry {
+        grid-template-columns: 1fr;
+    }
+
+    .main-image-container {
+        height: 200px;
+    }
+
+    .info-container {
+        padding: 24px;
+    }
+
+    .entry-title {
+        font-size: 22px;
+    }
+}
