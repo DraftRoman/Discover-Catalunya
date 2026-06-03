@@ -191,8 +191,51 @@ header h1 {
     color: var(--text-dark);
     line-height: 1.4;
 }
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
 
-/* Responsive adjustments */
+.detailed-entry {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.detailed-hero-image img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    color: #555;
+    cursor: pointer;
+    padding: 10px 0;
+    font-weight: 600;
+}
+.detailed-location {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+.detailed-ticketInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 20px;
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
 @media (max-width: 768px) {
     .journal-entry {
         grid-template-columns: 1fr;
