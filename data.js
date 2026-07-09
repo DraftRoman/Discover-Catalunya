@@ -13,7 +13,8 @@ const data = [
     "opening_hours": "Typically 9:30 AM - 7:30 PM, though hours vary by season and it's best to check before your visit.",
     "visit_duration": "About 2-3 hours.",
     "distance": "Located inside Barcelona (approx. 4km from city center / Pl. Catalunya)",
-    "ticketInfo": "Paid entry required for the Monumental Zone. Tickets must be booked in advance on the official website."
+    "ticketInfo": "Paid entry required for the Monumental Zone. Tickets must be booked in advance on the official website.",
+    "ticketUrl": "https://parkguell.barcelona/en/buy-tickets"
   },
   {
     "id": 2,
@@ -29,7 +30,8 @@ const data = [
     "opening_hours": "9:00 AM - 6:00 PM daily.",
     "visit_duration": "2-3 hours.",
     "distance": "Located in Barcelona (approx. 2km from Plaça Catalunya).",
-    "ticketInfo": "Paid entry required. Timed-entry tickets should be purchased in advance through the official website."
+    "ticketInfo": "Paid entry required. Timed-entry tickets should be purchased in advance through the official website.",
+    "ticketUrl": "https://sagradafamilia.org/en/tickets"
 
   },
   {
@@ -46,7 +48,8 @@ const data = [
     "opening_hours": "Typically 10:30 AM - 5:45 PM. Closed Mondays.",
     "visit_duration": "2-3 hours.",
     "distance": "Located in Figueres (approx. 140km northeast of Barcelona).",
-    "ticketInfo": "Paid museum admission required. Advance booking recommended during peak season."
+    "ticketInfo": "Paid museum admission required. Advance booking recommended during peak season.",
+    "ticketUrl": "https://tickets.salvador-dali.org/en/"
 
   },
   {
@@ -63,7 +66,8 @@ const data = [
     "opening_hours": "Monastery open daily 7:00 AM - 8:00 PM.",
     "visit_duration": "Half day to full day.",
     "distance": "Located in Montserrat (approx. 60km northwest of Barcelona).",
-    "ticketInfo": "Abbey access is free. Some attractions such as the museum, funiculars, and Black Madonna access may require separate tickets."
+    "ticketInfo": "Abbey access is free. Some attractions such as the museum, funiculars, and Black Madonna access may require separate tickets.",
+    "ticketUrl": "https://aeridemontserrat.com/en/"
 
   },
     {
@@ -80,7 +84,8 @@ const data = [
     "opening_hours": "Varies by season. Summer (Late June–Mid Sept): Daily 10:00 AM - 2:00 PM and 3:15 PM - 6:30 PM. Winter: Weekends and holidays only 10:00 AM - 2:00 PM. Closed Jan 1, Jan 6, Dec 25, and Dec 26.",
     "visit_duration": "About 45-60 minutes.",
     "distance": "Located in La Pobla de Lillet (approx. 125km north of Barcelona).",
-    "ticketInfo": "Paid admission required. Tickets can be purchased on-site or through the official website."
+    "ticketInfo": "Paid admission required. Tickets can be purchased on-site or through the official website.",
+    "ticketUrl": "https://turismelillet.cat/tour-item/jardins-artigas/?lang=en"
 
     },
   {
@@ -113,7 +118,8 @@ const data = [
     "opening_hours": "Open public spaces.",
     "visit_duration": "Full day or overnight stay.",
     "distance": "Located in Cadaqués (approx. 170km northeast of Barcelona).",
-    "ticketInfo": "Public access to the village is free. Nearby attractions such as the Dalí House Museum require separate tickets."
+    "ticketInfo": "Public access to the village is free. Nearby attractions such as the Dalí House Museum require separate tickets.",
+    "ticketUrl": "https://tickets.salvador-dali.org/ca/990-casa-salvador-dali"
 
   },
   {
@@ -130,7 +136,8 @@ const data = [
     "opening_hours": "9:00 AM - 8:00 PM. Closed Mondays.",
     "visit_duration": "1-2 hours.",
     "distance": "Located in Tarragona (approx. 100km southwest of Barcelona).",
-    "ticketInfo": "Paid admission required. Combination tickets with other Roman sites are available."
+    "ticketInfo": "Paid admission required. Combination tickets with other Roman sites are available.",
+    "ticketUrl": "https://entrades.museu.tarragona.cat/en/1440-individual/8654-amphitheatre"
 
   },
   {
@@ -198,7 +205,8 @@ const data = [
     "opening_hours": "10:00 AM - 12:30 PM, 3:00 PM - 6:00 PM daily.",
     "visit_duration": "2 hours.",
     "distance": "Located in Poblet (approx. 120km southwest of Barcelona).",
-    "ticketInfo": "Paid admission required for monastery visits. Guided tours are available."
+    "ticketInfo": "Paid admission required for monastery visits. Guided tours are available.",
+    "ticketUrl": "https://www.poblet.cat/es/visita-turistica/"
 
   },
   {
@@ -283,7 +291,8 @@ const data = [
     "opening_hours": "10:00 AM - 2:00 PM, 4:00 PM - 7:00 PM.",
     "visit_duration": "1-2 hours.",
     "distance": "Located in Vall de Boí (approx. 280km north of Barcelona).",
-    "ticketInfo": "Paid admission required for church interiors. Combined heritage passes are available."
+    "ticketInfo": "Paid admission required for church interiors. Combined heritage passes are available.",
+    "ticketUrl": "https://www.centreromanic.com/en/visit/"
 
   },
   {
