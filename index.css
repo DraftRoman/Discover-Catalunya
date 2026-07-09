@@ -36,7 +36,6 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
     background-color: var(--card-bg);
     border-bottom: 1px solid var(--border);
     padding: 16px;
@@ -44,6 +43,14 @@ header {
     top: 0;
     z-index: 100;
     box-shadow: var(--shadow);
+}
+
+.header-home-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: inherit;
+    text-decoration: none;
 }
 
 header img {
@@ -321,4 +328,132 @@ header h1 {
     .entry-title {
         font-size: 22px;
     }
+}
+
+/* Home page / country map */
+.home-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+}
+
+.home-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+.home-subtitle {
+    max-width: 560px;
+    color: var(--text);
+    margin: 0;
+}
+
+.spain-map {
+    width: 100%;
+    max-width: 560px;
+    height: auto;
+    margin: 16px 0;
+}
+
+.spain-map-region {
+    fill: var(--border);
+    stroke: var(--card-bg);
+    stroke-width: 1;
+    transition: fill 0.2s;
+}
+
+.spain-map-region.is-available {
+    fill: var(--primary);
+    cursor: pointer;
+}
+
+.spain-map-region.is-available:hover,
+.spain-map-region.is-available:focus-visible {
+    fill: var(--accent);
+    outline: none;
+}
+
+.spain-map-region.is-soon {
+    fill: var(--border);
+}
+
+.region-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+    max-width: 640px;
+}
+
+.region-list-link {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+}
+
+.region-list-link.is-available {
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+.region-list-link.is-available:hover {
+    background-color: var(--primary);
+    color: #fff;
+}
+
+.region-list-link.is-soon {
+    color: var(--text);
+    opacity: 0.6;
+}
+
+.region-list-link.is-soon em {
+    font-style: normal;
+    font-size: 11px;
+    margin-left: 4px;
+}
+
+.map-attribution {
+    font-size: 12px;
+    color: var(--text);
+    opacity: 0.7;
+}
+
+.map-attribution a {
+    color: inherit;
+}
+
+/* Region page */
+.region-page {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.region-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+.coming-soon-page {
+    text-align: center;
+    align-items: center;
+}
+
+.coming-soon-text {
+    color: var(--text);
+    max-width: 480px;
 }
