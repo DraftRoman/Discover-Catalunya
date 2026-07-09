@@ -1,11 +1,13 @@
 import marker from "../assets/marker.jpg"
 
-const AIRPORT_ORIGIN = "Barcelona-El Prat Airport (BCN)"
+const DEFAULT_AIRPORT = { name: "Barcelona-El Prat Airport", code: "BCN" }
 
 export default function DetailedEntry(props) {
+    const airport = props.airport || DEFAULT_AIRPORT
+    const airportOrigin = airport.code ? `${airport.name} (${airport.code})` : airport.name
     const destination = `${props.title}, ${props.country}`
-    const directionsUrl = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(AIRPORT_ORIGIN)}&destination=${encodeURIComponent(destination)}`
-    const directionsEmbedSrc = `https://maps.google.com/maps?saddr=${encodeURIComponent(AIRPORT_ORIGIN)}&daddr=${encodeURIComponent(destination)}&output=embed`
+    const directionsUrl = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(airportOrigin)}&destination=${encodeURIComponent(destination)}`
+    const directionsEmbedSrc = `https://maps.google.com/maps?saddr=${encodeURIComponent(airportOrigin)}&daddr=${encodeURIComponent(destination)}&output=embed`
 
     return (
         <article className="detailed-entry">
@@ -48,10 +50,10 @@ export default function DetailedEntry(props) {
                 )}
 
                 <div className="airport-directions">
-                    <h2 className="airport-directions-title">Getting There from Barcelona Airport (BCN)</h2>
+                    <h2 className="airport-directions-title">Getting There from {airport.name}{airport.code ? ` (${airport.code})` : ""}</h2>
                     <div className="airport-directions-map">
                         <iframe
-                            title={`Directions from Barcelona Airport to ${props.title}`}
+                            title={`Directions from ${airport.name} to ${props.title}`}
                             src={directionsEmbedSrc}
                             loading="lazy"
                             referrerPolicy="no-referrer-when-downgrade"
