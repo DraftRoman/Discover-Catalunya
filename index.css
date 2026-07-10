@@ -352,33 +352,82 @@ header h1 {
     margin: 0;
 }
 
-.spain-map {
+.country-map {
     width: 100%;
     max-width: 560px;
     height: auto;
     margin: 16px 0;
 }
 
-.spain-map-region {
+.country-map-region {
     fill: var(--border);
     stroke: var(--card-bg);
     stroke-width: 1;
     transition: fill 0.2s;
 }
 
-.spain-map-region.is-available {
+.country-map-region.is-available {
     fill: var(--primary);
     cursor: pointer;
 }
 
-.spain-map-region.is-available:hover,
-.spain-map-region.is-available:focus-visible {
+.country-map-region.is-available:hover,
+.country-map-region.is-available:focus-visible {
     fill: var(--accent);
     outline: none;
 }
 
-.spain-map-region.is-soon {
+.country-map-region.is-soon {
     fill: var(--border);
+}
+
+.country-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    padding: 0;
+    margin: 8px 0;
+    max-width: 640px;
+}
+
+.country-card {
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 14px;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.country-card.is-available {
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+.country-card.is-available:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+    background-color: var(--primary);
+    color: #fff;
+}
+
+.country-card.is-soon {
+    color: var(--text);
+    opacity: 0.6;
+    cursor: default;
+}
+
+.country-card.is-soon em {
+    display: block;
+    font-style: normal;
+    font-size: 11px;
+    margin-top: 4px;
 }
 
 .region-list {
