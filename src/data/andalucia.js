@@ -4,7 +4,7 @@ const data = [
     "title": "Alhambra & Generalife",
     "country": "Andalucía, Spain",
     "img": {
-      "src": "https://upload.wikimedia.org/wikipedia/commons/4/49/Alhambra-Granada%2C_Spain.jpg",
+      "src": "https://commons.wikimedia.org/wiki/Special:FilePath/The_whole_Alhambra_Granada_Spain.jpg",
       "alt": "The Alhambra palace and fortress complex overlooking Granada"
     },
     "googleMapsLink": "https://www.google.com/maps/search/?api=1&query=Alhambra%2C+Granada",
@@ -22,7 +22,7 @@ const data = [
     "title": "Mirador de San Nicolás",
     "country": "Andalucía, Spain",
     "img": {
-      "src": "https://upload.wikimedia.org/wikipedia/commons/8/85/Mirador_de_San_Nicol%C3%A1s%2C_Granada.jpg",
+      "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Alhambra_Granada_Mirador_san_Nicolas.jpg",
       "alt": "View of the Alhambra and Sierra Nevada from Mirador de San Nicolás"
     },
     "googleMapsLink": "https://www.google.com/maps/search/?api=1&query=Mirador+de+San+Nicol%C3%A1s%2C+Granada",
@@ -39,7 +39,7 @@ const data = [
     "title": "Mezquita-Catedral de Córdoba",
     "country": "Andalucía, Spain",
     "img": {
-      "src": "https://upload.wikimedia.org/wikipedia/commons/3/33/Interior_of_the_Mezquita%2C_Cordoba.jpg",
+      "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Mezquita-catedral_de_C%C3%B3rdoba_interior_17.jpg",
       "alt": "Red and white striped arches inside the Mezquita of Córdoba"
     },
     "googleMapsLink": "https://www.google.com/maps/search/?api=1&query=Mezquita+de+C%C3%B3rdoba",
@@ -57,7 +57,7 @@ const data = [
     "title": "Medina Azahara",
     "country": "Andalucía, Spain",
     "img": {
-      "src": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Medina_Azahara_02.jpg",
+      "src": "https://commons.wikimedia.org/wiki/Special:FilePath/P%C3%B3rtico_de_Medina_Azahara_(C%C3%B3rdoba,_Spain).jpg",
       "alt": "Ruins of the Caliphate-era palace city of Medina Azahara"
     },
     "googleMapsLink": "https://www.google.com/maps/search/?api=1&query=Medina+Azahara%2C+C%C3%B3rdoba",
@@ -75,7 +75,7 @@ const data = [
     "title": "Real Alcázar de Sevilla",
     "country": "Andalucía, Spain",
     "img": {
-      "src": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Sevilla_Reales_Alcazares_10.JPG",
+      "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Real_Alc%C3%A1zar_-_Seville_-_Patio_de_la_Monteria_-_Palacio_Mud%C3%A9jar_(14549226828).jpg",
       "alt": "Ornate Mudéjar courtyard of the Real Alcázar in Seville"
     },
     "googleMapsLink": "https://www.google.com/maps/search/?api=1&query=Real+Alc%C3%A1zar+de+Sevilla",
@@ -93,7 +93,7 @@ const data = [
     "title": "Plaza de España, Sevilla",
     "country": "Andalucía, Spain",
     "img": {
-      "src": "https://upload.wikimedia.org/wikipedia/commons/9/93/Sevilla_Espagne_Plaza_de_Espana.jpg",
+      "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Plaza_de_Espa%C3%B1a_(Sevilla)_-_01.jpg",
       "alt": "Semicircular Plaza de España building and canal in Seville"
     },
     "googleMapsLink": "https://www.google.com/maps/search/?api=1&query=Plaza+de+Espa%C3%B1a%2C+Sevilla",
@@ -110,7 +110,7 @@ const data = [
     "title": "Caminito del Rey",
     "country": "Andalucía, Spain",
     "img": {
-      "src": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Caminito_del_Rey_03.jpg",
+      "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Caminito_del_Rey_4.jpg",
       "alt": "Narrow walkway of the Caminito del Rey clinging to a gorge wall"
     },
     "googleMapsLink": "https://www.google.com/maps/search/?api=1&query=Caminito+del+Rey%2C+Ardales",
@@ -128,7 +128,7 @@ const data = [
     "title": "Ronda & Puente Nuevo",
     "country": "Andalucía, Spain",
     "img": {
-      "src": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Ronda_Puente_Nuevo.jpg",
+      "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Puente_Nuevo,_Ronda.jpg",
       "alt": "Puente Nuevo bridge spanning the deep gorge at Ronda"
     },
     "googleMapsLink": "https://www.google.com/maps/search/?api=1&query=Ronda%2C+Spain",
