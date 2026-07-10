@@ -10,6 +10,7 @@
   "preview": "vite preview"
 },
   "dependencies": {
+    "@svg-maps/canada": "^2.0.0",
     "@svg-maps/spain": "^2.0.0",
     "cors": "^2.8.6",
     "express": "^5.2.1",

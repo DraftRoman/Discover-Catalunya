@@ -1,17 +1,28 @@
 import { useParams, useNavigate, Link } from "react-router-dom"
 import Entry from "../components/Entry"
 import DetailedEntry from "../components/DetailedEntry"
-import { getRegion } from "../data/regions"
+import { getCountry } from "../data/countries"
 
 export default function RegionPage() {
-    const { regionId, entryId } = useParams()
+    const { countryId, regionId, entryId } = useParams()
     const navigate = useNavigate()
-    const region = getRegion(regionId)
+    const country = getCountry(countryId)
+
+    if (!country) {
+        return (
+            <div className="region-page">
+                <Link to="/" className="back-btn">← Back to the map</Link>
+                <p>We couldn't find that country.</p>
+            </div>
+        )
+    }
+
+    const region = country.getRegion(regionId)
 
     if (!region) {
         return (
             <div className="region-page">
-                <Link to="/" className="back-btn">← Back to the map</Link>
+                <Link to={`/${countryId}`} className="back-btn">← Back to the map</Link>
                 <p>We couldn't find that region.</p>
             </div>
         )
@@ -20,7 +31,7 @@ export default function RegionPage() {
     if (region.status !== "available" || !region.entries) {
         return (
             <div className="region-page coming-soon-page">
-                <Link to="/" className="back-btn">← Back to the map</Link>
+                <Link to={`/${countryId}`} className="back-btn">← Back to the map</Link>
                 <h1 className="region-title">{region.name}</h1>
                 <p className="coming-soon-text">
                     We're still researching the best spots in {region.name}. Check back soon!
@@ -36,7 +47,7 @@ export default function RegionPage() {
     if (entryId && !selectedEntry) {
         return (
             <div className="region-page">
-                <Link to={`/spain/${regionId}`} className="back-btn">← Back to {region.name}</Link>
+                <Link to={`/${countryId}/${regionId}`} className="back-btn">← Back to {region.name}</Link>
                 <p>We couldn't find that location.</p>
             </div>
         )
@@ -48,7 +59,7 @@ export default function RegionPage() {
                 <DetailedEntry
                     {...selectedEntry}
                     airport={selectedEntry.airport || region.airport}
-                    onBackClick={() => navigate(`/spain/${regionId}`)}
+                    onBackClick={() => navigate(`/${countryId}/${regionId}`)}
                 />
             </div>
         )
@@ -58,13 +69,13 @@ export default function RegionPage() {
         <Entry
             key={entry.id}
             {...entry}
-            onCardClick={() => navigate(`/spain/${regionId}/${entry.id}`)}
+            onCardClick={() => navigate(`/${countryId}/${regionId}/${entry.id}`)}
         />
     ))
 
     return (
         <div className="region-page">
-            <Link to="/" className="back-btn">← Back to the map</Link>
+            <Link to={`/${countryId}`} className="back-btn">← Back to the map</Link>
             <h1 className="region-title">{region.name}</h1>
             <div className="entries-list">{entryElements}</div>
         </div>

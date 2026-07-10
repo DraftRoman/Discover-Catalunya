@@ -1,43 +1,40 @@
 import { Link } from "react-router-dom"
-import SpainMap from "../components/SpainMap"
-import { getAllRegions } from "../data/regions"
+import { getAllCountries } from "../data/countries"
+
+const comingSoonCountries = [
+    { id: "france", name: "France" },
+    { id: "italy", name: "Italy" },
+    { id: "japan", name: "Japan" },
+    { id: "united-states", name: "United States" },
+]
 
 export default function Home() {
-    const regions = getAllRegions()
+    const countries = getAllCountries()
 
     return (
         <div className="home-page">
-            <h1 className="home-title">Discover Spain</h1>
+            <h1 className="home-title">Discover World</h1>
             <p className="home-subtitle">
-                Click a highlighted region on the map to explore its top sights, tickets, and how to get there
-                from the airport. More regions are being added over time.
+                Pick a country to explore its regions, top sights, tickets, and how to get there from the
+                airport. More countries are being added over time.
             </p>
 
-            <SpainMap />
-
-            <ul className="region-list">
-                {regions.map((region) => (
-                    <li key={region.id}>
-                        {region.status === "available" ? (
-                            <Link to={`/spain/${region.id}`} className="region-list-link is-available">
-                                {region.name}
-                            </Link>
-                        ) : (
-                            <span className="region-list-link is-soon">
-                                {region.name} <em>Coming soon</em>
-                            </span>
-                        )}
+            <ul className="country-list">
+                {countries.map((country) => (
+                    <li key={country.id}>
+                        <Link to={`/${country.id}`} className="country-card is-available">
+                            {country.name}
+                        </Link>
+                    </li>
+                ))}
+                {comingSoonCountries.map((country) => (
+                    <li key={country.id}>
+                        <span className="country-card is-soon">
+                            {country.name} <em>Coming soon</em>
+                        </span>
                     </li>
                 ))}
             </ul>
-
-            <p className="map-attribution">
-                Map data from{" "}
-                <a href="https://github.com/VictorCazanave/svg-maps" target="_blank" rel="noopener noreferrer">
-                    @svg-maps/spain
-                </a>{" "}
-                (CC BY 4.0).
-            </p>
         </div>
     )
 }

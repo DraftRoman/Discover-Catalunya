@@ -6,7 +6,7 @@ export default function Header() {
         <header>
             <Link to="/" className="header-home-link">
                 <img src={globe} alt="globe icon" />
-                <h1>Discover Spain</h1>
+                <h1>Discover World</h1>
             </Link>
         </header>
     )
