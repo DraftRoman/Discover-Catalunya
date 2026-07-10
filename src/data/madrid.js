@@ -4,7 +4,7 @@ const data = [
     "title": "Museo del Prado",
     "country": "Madrid, Spain",
     "img": {
-      "src": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Museo_del_Prado_-_Madrid%2C_Espa%C3%B1a.jpg",
+      "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Museo_del_Prado_(Madrid)_04.jpg",
       "alt": "Neoclassical facade of the Museo del Prado in Madrid"
     },
     "googleMapsLink": "https://www.google.com/maps/search/?api=1&query=Museo+del+Prado%2C+Madrid",
@@ -21,7 +21,7 @@ const data = [
     "title": "Palacio Real de Madrid",
     "country": "Madrid, Spain",
     "img": {
-      "src": "https://upload.wikimedia.org/wikipedia/commons/9/93/Royal_Palace_of_Madrid_02.jpg",
+      "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Madrid_-_Royal_Palace_of_Madrid_-_20171027160239.jpg",
       "alt": "Grand courtyard facade of the Royal Palace of Madrid"
     },
     "googleMapsLink": "https://www.google.com/maps/search/?api=1&query=Palacio+Real+de+Madrid",
@@ -38,7 +38,7 @@ const data = [
     "title": "Parque del Retiro",
     "country": "Madrid, Spain",
     "img": {
-      "src": "https://upload.wikimedia.org/wikipedia/commons/8/85/Palacio_de_Cristal_%28Parque_de_El_Retiro%2C_Madrid%29_01.jpg",
+      "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Palacio_de_Cristal_(Retiro,_Madrid)_12.jpg",
       "alt": "Glass Palace (Palacio de Cristal) reflected in the pond at Retiro Park"
     },
     "googleMapsLink": "https://www.google.com/maps/search/?api=1&query=Parque+del+Retiro%2C+Madrid",
@@ -54,7 +54,7 @@ const data = [
     "title": "Plaza Mayor & Puerta del Sol",
     "country": "Madrid, Spain",
     "img": {
-      "src": "https://upload.wikimedia.org/wikipedia/commons/9/94/Plaza_Mayor_de_Madrid_02.jpg",
+      "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Plaza_Mayor_de_Madrid_06.jpg",
       "alt": "Arcaded buildings and cafes lining the Plaza Mayor in Madrid"
     },
     "googleMapsLink": "https://www.google.com/maps/search/?api=1&query=Plaza+Mayor%2C+Madrid",
@@ -70,7 +70,7 @@ const data = [
     "title": "Templo de Debod",
     "country": "Madrid, Spain",
     "img": {
-      "src": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Templo_de_Debod_-_01.jpg",
+      "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Templo_de_Debod_in_Madrid.jpg",
       "alt": "Ancient Egyptian Temple of Debod at sunset in Madrid"
     },
     "googleMapsLink": "https://www.google.com/maps/search/?api=1&query=Templo+de+Debod%2C+Madrid",
@@ -86,7 +86,7 @@ const data = [
     "title": "Real Sitio de San Lorenzo de El Escorial",
     "country": "Madrid, Spain",
     "img": {
-      "src": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Monasterio_de_El_Escorial%2C_El_Escorial%2C_Espa%C3%B1a%2C_2023-01-08%2C_DD_02.jpg",
+      "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Facade_monastery_San_Lorenzo_de_El_Escorial_Spain.jpg",
       "alt": "Monumental grey stone facade of the Royal Monastery of El Escorial"
     },
     "googleMapsLink": "https://www.google.com/maps/search/?api=1&query=Real+Sitio+de+San+Lorenzo+de+El+Escorial",
@@ -103,7 +103,7 @@ const data = [
     "title": "Palacio Real de Aranjuez",
     "country": "Madrid, Spain",
     "img": {
-      "src": "https://upload.wikimedia.org/wikipedia/commons/6/60/Palacio_Real_de_Aranjuez_-_01.jpg",
+      "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Palacio_Real_de_Aranjuez_(5).jpg",
       "alt": "Baroque facade of the Royal Palace of Aranjuez surrounded by gardens"
     },
     "googleMapsLink": "https://www.google.com/maps/search/?api=1&query=Palacio+Real+de+Aranjuez",
@@ -120,7 +120,7 @@ const data = [
     "title": "Alcalá de Henares",
     "country": "Madrid, Spain",
     "img": {
-      "src": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Alcala_de_Henares_-_Universidad_01.jpg",
+      "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Calle_Mayor_in_Alcala_de_Henares_(1)_(29116814140).jpg",
       "alt": "Plateresque facade of the historic University of Alcalá de Henares"
     },
     "googleMapsLink": "https://www.google.com/maps/search/?api=1&query=Alcal%C3%A1+de+Henares",
