@@ -6,10 +6,9 @@ import basqueCountry from "./basque-country"
 import galicia from "./galicia"
 import castileAndLeon from "./castile-and-leon"
 import balearicIslands from "./balearic-islands"
+import type { Region } from "../types"
 
-
-
-const regionList = [
+const regionList: Array<Pick<Region, "id" | "name" | "status">> = [
   { id: "andalusia", name: "Andalucía", status: "available" },
   { id: "aragon", name: "Aragón", status: "soon" },
   { id: "asturias", name: "Asturias", status: "soon" },
@@ -31,7 +30,7 @@ const regionList = [
 
 
 
-const regionExtras = {
+const regionExtras: Record<string, Pick<Region, "airport" | "entries">> = {
   andalusia: {
     airport: { name: "Málaga-Costa del Sol Airport", code: "AGP" },
     entries: andalucia,
@@ -66,15 +65,15 @@ const regionExtras = {
   },
 }
 
-const regionsById = Object.fromEntries(
+const regionsById: Record<string, Region> = Object.fromEntries(
   regionList.map((region) => [region.id, { ...region, ...regionExtras[region.id] }])
 )
 
-export function getRegion(id) {
-  return regionsById[id]
+export function getRegion(id: string | undefined): Region | undefined {
+  return id ? regionsById[id] : undefined
 }
 
-export function getAllRegions() {
+export function getAllRegions(): Region[] {
   return regionList.map((region) => regionsById[region.id])
 }
 

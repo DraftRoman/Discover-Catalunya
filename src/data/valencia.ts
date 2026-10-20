@@ -1,4 +1,6 @@
-const data = [
+import type { Entry } from "../types"
+
+const data: Entry[] = [
   {
     "id": 1,
     "title": "Ciutat de les Arts i les Ciències",

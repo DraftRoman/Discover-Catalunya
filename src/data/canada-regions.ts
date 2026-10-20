@@ -1,8 +1,9 @@
 import ontario from "./ontario"
 import quebec from "./quebec"
 import britishColumbia from "./british-columbia"
+import type { Region } from "../types"
 
-const regionList = [
+const regionList: Array<Pick<Region, "id" | "name" | "status">> = [
     { id: "ab", name: "Alberta", status: "soon" },
     { id: "bc", name: "British Columbia", status: "available" },
     { id: "mb", name: "Manitoba", status: "soon" },
@@ -18,16 +19,16 @@ const regionList = [
     { id: "yt", name: "Yukon", status: "soon" },
 ]
 
-const regionExtras = {
+const regionExtras: Record<string, Pick<Region, "airport" | "entries">> = {
     on: { airport: { name: "Toronto Pearson International Airport", code: "YYZ" }, entries: ontario },
     qc: { airport: { name: "Montréal-Trudeau International Airport", code: "YUL" }, entries: quebec },
     bc: { airport: { name: "Vancouver International Airport", code: "YVR" }, entries: britishColumbia },
 }
 
-const regionsById = Object.fromEntries(
+const regionsById: Record<string, Region> = Object.fromEntries(
     regionList.map((region) => [region.id, { ...region, ...regionExtras[region.id] }])
 )
 
-export function getRegion(id) { return regionsById[id] }
-export function getAllRegions() { return regionList.map((region) => regionsById[region.id]) }
+export function getRegion(id: string | undefined): Region | undefined { return id ? regionsById[id] : undefined }
+export function getAllRegions(): Region[] { return regionList.map((region) => regionsById[region.id]) }
 export default regionsById
