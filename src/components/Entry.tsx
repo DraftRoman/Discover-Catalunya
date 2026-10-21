@@ -1,5 +1,11 @@
 import marker from "../assets/marker.jpg"
-export default function Entry(props) {
+import type { Entry as EntryData } from "../types"
+
+interface EntryProps extends Pick<EntryData, "img" | "country" | "googleMapsLink" | "title" | "text"> {
+    onCardClick: () => void
+}
+
+export default function Entry(props: EntryProps) {
     return (
         <article className="journal-entry" onClick={props.onCardClick} style={{ cursor: 'pointer' }}>
             <div className="main-image-container">

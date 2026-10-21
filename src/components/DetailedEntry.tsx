@@ -1,8 +1,13 @@
 import marker from "../assets/marker.jpg"
+import type { Airport, Entry as EntryData } from "../types"
 
-const DEFAULT_AIRPORT = { name: "Barcelona-El Prat Airport", code: "BCN" }
+const DEFAULT_AIRPORT: Airport = { name: "Barcelona-El Prat Airport", code: "BCN" }
 
-export default function DetailedEntry(props) {
+interface DetailedEntryProps extends EntryData {
+    onBackClick: () => void
+}
+
+export default function DetailedEntry(props: DetailedEntryProps) {
     const airport = props.airport || DEFAULT_AIRPORT
     const airportOrigin = airport.code ? `${airport.name} (${airport.code})` : airport.name
     const destination = `${props.title}, ${props.country}`
@@ -23,7 +28,7 @@ export default function DetailedEntry(props) {
                 <div className="location-row">
                     <img className="marker" src={marker} alt="map marker" />
                     <span className="country">{props.country}</span>
-                    <a href={props.googleMapsLink} class="maps-link" target="_blank" rel="noopener noreferrer">
+                    <a href={props.googleMapsLink} className="maps-link" target="_blank" rel="noopener noreferrer">
                         View on Google Maps
                     </a>
                 </div>

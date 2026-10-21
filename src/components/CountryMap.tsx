@@ -1,10 +1,16 @@
 import { useNavigate } from "react-router-dom"
+import type { KeyboardEvent } from "react"
+import type { Country, Region } from "../types"
 
-export default function CountryMap({ country }) {
+interface CountryMapProps {
+    country: Country
+}
+
+export default function CountryMap({ country }: CountryMapProps) {
     const navigate = useNavigate()
     const regions = country.getAllRegions()
-    const regionById = Object.fromEntries(regions.map((region) => [region.id, region]))
-    const goToRegion = (id) => navigate(`/${country.id}/${id}`)
+    const regionById: Record<string, Region> = Object.fromEntries(regions.map((region) => [region.id, region]))
+    const goToRegion = (id: string) => navigate(`/${country.id}/${id}`)
 
     return (
         <svg className="country-map" viewBox={country.mapData.viewBox} role="img" aria-label={country.mapData.label}>
@@ -19,7 +25,7 @@ export default function CountryMap({ country }) {
                         role={isAvailable ? "button" : undefined}
                         tabIndex={isAvailable ? 0 : undefined}
                         onClick={isAvailable ? () => goToRegion(location.id) : undefined}
-                        onKeyDown={isAvailable ? (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); goToRegion(location.id) } } : undefined}
+                        onKeyDown={isAvailable ? (e: KeyboardEvent<SVGPathElement>) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); goToRegion(location.id) } } : undefined}
                     >
                         <title>{region ? region.name : `${location.name} (coming soon)`}</title>
                     </path>
