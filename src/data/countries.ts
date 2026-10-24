@@ -12,6 +12,7 @@ const countryList: Country[] = [
         mapData: spainMapData as SvgMap,
         getRegion: spainRegions.getRegion,
         getAllRegions: spainRegions.getAllRegions,
+        loadRegionEntries: spainRegions.loadRegionEntries,
     },
     {
         id: "canada",
@@ -20,6 +21,7 @@ const countryList: Country[] = [
         mapData: canadaMapData as SvgMap,
         getRegion: canadaRegions.getRegion,
         getAllRegions: canadaRegions.getAllRegions,
+        loadRegionEntries: canadaRegions.loadRegionEntries,
     },
 ]
 

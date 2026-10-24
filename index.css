@@ -506,3 +506,8 @@ header h1 {
     color: var(--text);
     max-width: 480px;
 }
+
+.region-loading,
+.page-loading {
+    color: var(--text);
+}
