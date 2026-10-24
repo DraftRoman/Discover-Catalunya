@@ -1,12 +1,44 @@
+import { useEffect, useState } from "react"
 import { useParams, useNavigate, Link } from "react-router-dom"
 import Entry from "../components/Entry"
 import DetailedEntry from "../components/DetailedEntry"
 import { getCountry } from "../data/countries"
+import type { Entry as EntryData } from "../types"
 
 export default function RegionPage() {
     const { countryId, regionId, entryId } = useParams()
     const navigate = useNavigate()
     const country = getCountry(countryId)
+    const region = country?.getRegion(regionId)
+    const regionKey = region?.status === "available" ? `${countryId}/${regionId}` : undefined
+
+    const [entries, setEntries] = useState<EntryData[] | undefined>(undefined)
+    const [loadedRegionKey, setLoadedRegionKey] = useState<string | undefined>(undefined)
+
+    if (regionKey !== loadedRegionKey) {
+        setLoadedRegionKey(regionKey)
+        setEntries(undefined)
+    }
+
+    useEffect(() => {
+        if (!country || !regionKey) {
+            return
+        }
+
+        let cancelled = false
+
+        country.loadRegionEntries(regionId).then((loadedEntries) => {
+            if (!cancelled) {
+                setEntries(loadedEntries)
+            }
+        })
+
+        return () => {
+            cancelled = true
+        }
+    }, [country, regionKey, regionId])
+
+    const isLoadingEntries = Boolean(regionKey) && !entries
 
     if (!country) {
         return (
@@ -17,8 +49,6 @@ export default function RegionPage() {
         )
     }
 
-    const region = country.getRegion(regionId)
-
     if (!region) {
         return (
             <div className="region-page">
@@ -28,7 +58,7 @@ export default function RegionPage() {
         )
     }
 
-    if (region.status !== "available" || !region.entries) {
+    if (region.status !== "available") {
         return (
             <div className="region-page coming-soon-page">
                 <Link to={`/${countryId}`} className="back-btn">← Back to the map</Link>
@@ -40,8 +70,18 @@ export default function RegionPage() {
         )
     }
 
+    if (isLoadingEntries || !entries) {
+        return (
+            <div className="region-page">
+                <Link to={`/${countryId}`} className="back-btn">← Back to the map</Link>
+                <h1 className="region-title">{region.name}</h1>
+                <p className="region-loading">Loading {region.name}…</p>
+            </div>
+        )
+    }
+
     const selectedEntry = entryId
-        ? region.entries.find((entry) => String(entry.id) === entryId)
+        ? entries.find((entry) => String(entry.id) === entryId)
         : null
 
     if (entryId && !selectedEntry) {
@@ -65,7 +105,7 @@ export default function RegionPage() {
         )
     }
 
-    const entryElements = region.entries.map((entry) => (
+    const entryElements = entries.map((entry) => (
         <Entry
             key={entry.id}
             {...entry}

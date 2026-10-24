@@ -53,4 +53,5 @@ export interface Country {
   mapData: SvgMap
   getRegion: (id: string | undefined) => Region | undefined
   getAllRegions: () => Region[]
+  loadRegionEntries: (id: string | undefined) => Promise<Entry[] | undefined>
 }

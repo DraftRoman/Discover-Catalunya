@@ -1,7 +1,4 @@
-import ontario from "./ontario"
-import quebec from "./quebec"
-import britishColumbia from "./british-columbia"
-import type { Region } from "../types"
+import type { Entry, Region } from "../types"
 
 const regionList: Array<Pick<Region, "id" | "name" | "status">> = [
     { id: "ab", name: "Alberta", status: "soon" },
@@ -19,16 +16,32 @@ const regionList: Array<Pick<Region, "id" | "name" | "status">> = [
     { id: "yt", name: "Yukon", status: "soon" },
 ]
 
-const regionExtras: Record<string, Pick<Region, "airport" | "entries">> = {
-    on: { airport: { name: "Toronto Pearson International Airport", code: "YYZ" }, entries: ontario },
-    qc: { airport: { name: "Montréal-Trudeau International Airport", code: "YUL" }, entries: quebec },
-    bc: { airport: { name: "Vancouver International Airport", code: "YVR" }, entries: britishColumbia },
+const regionAirports: Record<string, Region["airport"]> = {
+    on: { name: "Toronto Pearson International Airport", code: "YYZ" },
+    qc: { name: "Montréal-Trudeau International Airport", code: "YUL" },
+    bc: { name: "Vancouver International Airport", code: "YVR" },
+}
+
+// Each loader is its own dynamic import so Vite can chunk a region's entries
+// separately, fetched only when that region is visited.
+const entryLoaders: Record<string, () => Promise<{ default: Entry[] }>> = {
+    on: () => import("./ontario"),
+    qc: () => import("./quebec"),
+    bc: () => import("./british-columbia"),
 }
 
 const regionsById: Record<string, Region> = Object.fromEntries(
-    regionList.map((region) => [region.id, { ...region, ...regionExtras[region.id] }])
+    regionList.map((region) => [region.id, { ...region, airport: regionAirports[region.id] }])
 )
 
 export function getRegion(id: string | undefined): Region | undefined { return id ? regionsById[id] : undefined }
 export function getAllRegions(): Region[] { return regionList.map((region) => regionsById[region.id]) }
+
+export async function loadRegionEntries(id: string | undefined): Promise<Entry[] | undefined> {
+    const loader = id ? entryLoaders[id] : undefined
+    if (!loader) return undefined
+    const module = await loader()
+    return module.default
+}
+
 export default regionsById

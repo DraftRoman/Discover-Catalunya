@@ -1,12 +1,4 @@
-import catalunya from "./catalunya"
-import madrid from "./madrid"
-import andalucia from "./andalucia"
-import valencia from "./valencia"
-import basqueCountry from "./basque-country"
-import galicia from "./galicia"
-import castileAndLeon from "./castile-and-leon"
-import balearicIslands from "./balearic-islands"
-import type { Region } from "../types"
+import type { Entry, Region } from "../types"
 
 const regionList: Array<Pick<Region, "id" | "name" | "status">> = [
   { id: "andalusia", name: "Andalucía", status: "available" },
@@ -28,45 +20,32 @@ const regionList: Array<Pick<Region, "id" | "name" | "status">> = [
   { id: "valencia", name: "Comunitat Valenciana", status: "available" },
 ]
 
+const regionAirports: Record<string, Region["airport"]> = {
+  andalusia: { name: "Málaga-Costa del Sol Airport", code: "AGP" },
+  catalonia: { name: "Barcelona-El Prat Airport", code: "BCN" },
+  madrid: { name: "Adolfo Suárez Madrid-Barajas Airport", code: "MAD" },
+  valencia: { name: "Valencia Airport", code: "VLC" },
+  "basque-country": { name: "Bilbao Airport", code: "BIO" },
+  galicia: { name: "Santiago-Rosalía de Castro Airport", code: "SCQ" },
+  "castile-and-leon": { name: "Adolfo Suárez Madrid-Barajas Airport", code: "MAD" },
+  "balearic-islands": { name: "Palma de Mallorca Airport", code: "PMI" },
+}
 
-
-const regionExtras: Record<string, Pick<Region, "airport" | "entries">> = {
-  andalusia: {
-    airport: { name: "Málaga-Costa del Sol Airport", code: "AGP" },
-    entries: andalucia,
-  },
-  catalonia: {
-    airport: { name: "Barcelona-El Prat Airport", code: "BCN" },
-    entries: catalunya,
-  },
-  madrid: {
-    airport: { name: "Adolfo Suárez Madrid-Barajas Airport", code: "MAD" },
-    entries: madrid,
-  },
-  valencia: {
-    airport: { name: "Valencia Airport", code: "VLC" },
-    entries: valencia,
-  },
-  "basque-country": {
-    airport: { name: "Bilbao Airport", code: "BIO" },
-    entries: basqueCountry,
-  },
-  galicia: {
-    airport: { name: "Santiago-Rosalía de Castro Airport", code: "SCQ" },
-    entries: galicia,
-  },
-  "castile-and-leon": {
-    airport: { name: "Adolfo Suárez Madrid-Barajas Airport", code: "MAD" },
-    entries: castileAndLeon,
-  },
-  "balearic-islands": {
-    airport: { name: "Palma de Mallorca Airport", code: "PMI" },
-    entries: balearicIslands,
-  },
+// Each loader is its own dynamic import so Vite can chunk a region's entries
+// (and any assets they pull in) separately, fetched only when that region is visited.
+const entryLoaders: Record<string, () => Promise<{ default: Entry[] }>> = {
+  andalusia: () => import("./andalucia"),
+  catalonia: () => import("./catalunya"),
+  madrid: () => import("./madrid"),
+  valencia: () => import("./valencia"),
+  "basque-country": () => import("./basque-country"),
+  galicia: () => import("./galicia"),
+  "castile-and-leon": () => import("./castile-and-leon"),
+  "balearic-islands": () => import("./balearic-islands"),
 }
 
 const regionsById: Record<string, Region> = Object.fromEntries(
-  regionList.map((region) => [region.id, { ...region, ...regionExtras[region.id] }])
+  regionList.map((region) => [region.id, { ...region, airport: regionAirports[region.id] }])
 )
 
 export function getRegion(id: string | undefined): Region | undefined {
@@ -75,6 +54,13 @@ export function getRegion(id: string | undefined): Region | undefined {
 
 export function getAllRegions(): Region[] {
   return regionList.map((region) => regionsById[region.id])
+}
+
+export async function loadRegionEntries(id: string | undefined): Promise<Entry[] | undefined> {
+  const loader = id ? entryLoaders[id] : undefined
+  if (!loader) return undefined
+  const module = await loader()
+  return module.default
 }
 
 export default regionsById

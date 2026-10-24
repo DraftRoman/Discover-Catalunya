@@ -26,4 +26,17 @@ describe("countries data", () => {
         expect(spain?.getRegion("on")).toBeUndefined()
         expect(canada?.getRegion("on")?.name).toBe("Ontario")
     })
+
+    it("wires each country's entry loader to its own data", async () => {
+        const spain = getCountry("spain")
+        const canada = getCountry("canada")
+
+        const spainEntries = await spain?.loadRegionEntries("catalonia")
+        expect(spainEntries?.length).toBeGreaterThan(0)
+
+        const canadaEntries = await canada?.loadRegionEntries("on")
+        expect(canadaEntries?.length).toBeGreaterThan(0)
+
+        expect(await spain?.loadRegionEntries("on")).toBeUndefined()
+    })
 })

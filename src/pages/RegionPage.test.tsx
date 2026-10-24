@@ -31,20 +31,25 @@ describe("RegionPage", () => {
         expect(screen.getByText(/still researching the best spots/i)).toBeInTheDocument()
     })
 
-    it("lists entries for an available region", () => {
+    it("shows a loading state while a region's entries are being fetched", () => {
         renderAt("/spain/catalonia")
         expect(screen.getByRole("heading", { name: "Catalunya" })).toBeInTheDocument()
-        expect(screen.getByText("Park Güell")).toBeInTheDocument()
+        expect(screen.getByText(/Loading Catalunya/)).toBeInTheDocument()
     })
 
-    it("shows a not-found message for an unknown entry id", () => {
+    it("lists entries for an available region once they load", async () => {
+        renderAt("/spain/catalonia")
+        expect(await screen.findByText("Park Güell")).toBeInTheDocument()
+    })
+
+    it("shows a not-found message for an unknown entry id", async () => {
         renderAt("/spain/catalonia/9999")
-        expect(screen.getByText(/couldn't find that location/i)).toBeInTheDocument()
+        expect(await screen.findByText(/couldn't find that location/i)).toBeInTheDocument()
     })
 
-    it("shows the detail view for a known entry", () => {
+    it("shows the detail view for a known entry", async () => {
         renderAt("/spain/catalonia/1")
-        expect(screen.getByRole("heading", { name: "Park Güell" })).toBeInTheDocument()
+        expect(await screen.findByRole("heading", { name: "Park Güell" })).toBeInTheDocument()
         expect(screen.getByText(/Getting There from/)).toBeInTheDocument()
     })
 })
